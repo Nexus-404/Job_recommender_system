@@ -1,0 +1,73 @@
+<html>
+    <head>
+	<style>
+	.query{
+		height: 40px;
+		width: 300px;
+    		font-size: 16px;
+		padding: 15px;
+		border: none;
+		box-shadow: 0 0 1px 0;
+	}
+	.search{
+		height: 40px;
+		border: none;
+		background: #FF0000;
+		color: #FFF;
+		box-shadow: 0 0 2px 0 #000;
+	}
+	.s_cont{
+		display: block;
+		background: white;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		padding: 12px;
+		height: 50px;
+		box-shadow: 0 0 2px 0;
+	}
+	body{
+		background: #E0E0E0;
+	}
+	.container2{
+		display:block;
+		position: relative;
+		padding: 15px;
+		background: white;
+		box-shadow: 0 0 2px 0;
+		width: 700px;
+		border-radius: 3px;
+		left: 50px;
+	}
+	.job_cont{
+		display: block;
+		background: white;
+		position: absolute;
+		top: 80px;
+		height: 20px;
+		box-shadow: 0 0 2px 0;
+		left: 0px;
+		right: 0px;
+	}
+	</style>
+        <title>Job Recommendations</title>
+    </head>
+	<body>
+	<div class="s_cont">
+        <form method="POST"><center>
+            <input type="text" id="myFile" name="query" class="query" placeholder="Enter your Query">
+            <button type="submit" class="search">SEARCH JOBS</button></center>
+        </form>
+	</div><div class="job_cont">
+            	<b> &nbspShowing Jobs | </b> Your query: {{query}}</div>
+		<br><br><br><br><br><br><br>
+                {#    loop through jobs and render them in list#}
+                {% for job in jobs %}
+		<div class="container2">
+            	<div class="collection-item"><a href="http://{{links[loop.index0]}}/" style=" FONT-SIZE: 25; color: black;">{{ job }}</a></div><br>
+            	<div>{{job_description[loop.index0]}}</div>
+                </div><br />
+		{% endfor %}
+	</body>
+</html>
